@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <queue>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 
@@ -15,12 +16,14 @@ class gameState {
         ~gameState();
         void drawGrid();
         bool solveGrid();
+        void printProposalHist();
     private:
         boost::numeric::ublas::matrix<int> sudokuGrid;
+        std::queue<std::pair<int, int>> proposalHistory; // Replace with new history datatype
         bool checkRow();
         bool checkCol();
-        bool checkSegment(int proposal, int i, int j);
-        int makeProposal(int i, int j);
+        bool checkSegment(int& proposal, int& i, int& j);
+        bool makeProposal(int& i, int& j);
 };
 
 #endif

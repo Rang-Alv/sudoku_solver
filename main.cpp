@@ -16,8 +16,8 @@ int main(int argc, char* argv[]) {
         sudokuGame.drawGrid();
         sudokuGame.solveGrid();
         sudokuGame.drawGrid();
+        sudokuGame.printProposalHist();
         //drawValues(argc, argv);
-
         return 0;
     }
     catch (const std::exception& e) {
